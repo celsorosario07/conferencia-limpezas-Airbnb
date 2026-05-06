@@ -177,12 +177,51 @@
   .row-verificar td:first-child { border-left: 3px solid var(--verificar); }
   .row-pendente                 { opacity: 0.6; }
 
+  /* SEÇÕES CI/CO */
+  .secao-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .secao-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
+  .secao-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .secao-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+  .secao-count {
+    font-size: 22px;
+    font-weight: 700;
+    font-family: 'DM Mono', monospace;
+  }
+  .secao-ci .secao-count { color: #2ecc71; }
+  .secao-co .secao-count { color: #e74c3c; }
+  .secao-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 8px;
+  }
+
   .footer {
     margin-top: 32px; text-align: center;
     font-size: 12px; color: var(--muted); font-family: 'DM Mono', monospace;
   }
-
-  @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
   }
@@ -308,6 +347,73 @@
             <div class="mov-hospede">W. F.</div>
             <div class="mov-acao"><span class="badge ok">✅ OK</span></div>
         </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHECK-INS E CHECKOUTS DO DIA -->
+<div class="secao-row">
+  <div class="secao-card secao-ci">
+    <div class="secao-header">
+      <span class="secao-title">↓ Check-ins hoje</span>
+      <span class="secao-count">5</span>
+    </div>
+    <div class="secao-grid">
+      
+        <div class="mov-card" style="border-left:4px solid #1e8449">
+          <div class="mov-apto">161111A</div>
+          <div class="mov-hospede">—</div>
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px">
+            <span class="badge ok">✅ OK</span>
+            <span style="font-size:10px;padding:2px 7px;border-radius:10px;background:rgba(0,0,0,0.15);color:#2ecc71">Limpeza agendada</span>
+            <span style="font-size:10px;color:#7b82a0">Morada</span>
+          </div>
+        </div>
+        <div class="mov-card" style="border-left:4px solid #1e8449">
+          <div class="mov-apto">161152</div>
+          <div class="mov-hospede">N.</div>
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px">
+            <span class="badge ok">✅ OK</span>
+            <span style="font-size:10px;padding:2px 7px;border-radius:10px;background:rgba(0,0,0,0.15);color:#e74c3c">SEM limpeza</span>
+            <span style="font-size:10px;color:#7b82a0">Morada</span>
+          </div>
+        </div>
+        <div class="mov-card" style="border-left:4px solid #1e8449">
+          <div class="mov-apto">161161</div>
+          <div class="mov-hospede">F. D.</div>
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px">
+            <span class="badge ok">✅ OK</span>
+            <span style="font-size:10px;padding:2px 7px;border-radius:10px;background:rgba(0,0,0,0.15);color:#2ecc71">Limpeza agendada</span>
+            <span style="font-size:10px;color:#7b82a0">Morada</span>
+          </div>
+        </div>
+        <div class="mov-card" style="border-left:4px solid #1e8449">
+          <div class="mov-apto">161178</div>
+          <div class="mov-hospede">I. M.</div>
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px">
+            <span class="badge ok">✅ OK</span>
+            <span style="font-size:10px;padding:2px 7px;border-radius:10px;background:rgba(0,0,0,0.15);color:#e74c3c">SEM limpeza</span>
+            <span style="font-size:10px;color:#7b82a0">Morada</span>
+          </div>
+        </div>
+        <div class="mov-card" style="border-left:4px solid #1e8449">
+          <div class="mov-apto">161183</div>
+          <div class="mov-hospede">W. F.</div>
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px">
+            <span class="badge ok">✅ OK</span>
+            <span style="font-size:10px;padding:2px 7px;border-radius:10px;background:rgba(0,0,0,0.15);color:#e74c3c">SEM limpeza</span>
+            <span style="font-size:10px;color:#7b82a0">Morada</span>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="secao-card secao-co">
+    <div class="secao-header">
+      <span class="secao-title">↑ Checkouts hoje</span>
+      <span class="secao-count">0</span>
+    </div>
+    <div class="secao-grid">
+      <p style="color:#7b82a0;font-size:13px">Nenhum checkout hoje.</p>
     </div>
   </div>
 </div>
