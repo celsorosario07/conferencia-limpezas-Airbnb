@@ -16,11 +16,8 @@
     --text: #e8eaf0;
     --muted: #7b82a0;
     --ok: #1e8449;
-    --ok-light: #d5f5e3;
     --urgente: #c0392b;
-    --urgente-light: #fadbd8;
     --verificar: #e67e22;
-    --verificar-light: #fdebd0;
     --pendente: #3d4166;
     --accent: #4f7cff;
   }
@@ -33,7 +30,6 @@
     padding: 24px;
   }
 
-  /* HEADER */
   .header {
     display: flex;
     align-items: center;
@@ -43,124 +39,86 @@
     border-bottom: 1px solid var(--border);
   }
   .header-left h1 {
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    color: var(--text);
+    font-size: 22px; font-weight: 700;
+    letter-spacing: -0.5px; color: var(--text);
   }
   .header-left p {
-    font-size: 13px;
-    color: var(--muted);
-    margin-top: 4px;
-    font-family: 'DM Mono', monospace;
+    font-size: 13px; color: var(--muted);
+    margin-top: 4px; font-family: 'DM Mono', monospace;
   }
   .header-badge {
-    background: var(--accent);
-    color: white;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    background: var(--accent); color: white;
+    padding: 6px 14px; border-radius: 20px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
   }
 
   /* MÉTRICAS */
   .metrics {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-bottom: 28px;
+    gap: 16px; margin-bottom: 28px;
   }
   .metric-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px 24px;
-    position: relative;
-    overflow: hidden;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px 24px;
+    position: relative; overflow: hidden;
     transition: transform 0.2s;
   }
   .metric-card:hover { transform: translateY(-2px); }
   .metric-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
     border-radius: 12px 12px 0 0;
   }
-  .metric-card.ok::before { background: var(--ok); }
-  .metric-card.urgente::before { background: var(--urgente); }
-  .metric-card.verificar::before { background: var(--verificar); }
+  .metric-card.ok::before      { background: var(--ok); }
+  .metric-card.urgente::before  { background: var(--urgente); }
+  .metric-card.verificar::before{ background: var(--verificar); }
   .metric-card.pendente::before { background: var(--pendente); }
   .metric-label {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--muted);
-    margin-bottom: 8px;
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 1px;
+    color: var(--muted); margin-bottom: 8px;
   }
   .metric-value {
-    font-size: 42px;
-    font-weight: 700;
-    line-height: 1;
-    font-family: 'DM Mono', monospace;
+    font-size: 42px; font-weight: 700;
+    line-height: 1; font-family: 'DM Mono', monospace;
   }
-  .metric-card.ok .metric-value { color: #2ecc71; }
-  .metric-card.urgente .metric-value { color: #e74c3c; }
+  .metric-card.ok .metric-value       { color: #2ecc71; }
+  .metric-card.urgente .metric-value   { color: #e74c3c; }
   .metric-card.verificar .metric-value { color: #f39c12; }
-  .metric-card.pendente .metric-value { color: var(--muted); }
-  .metric-sub {
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 6px;
-  }
+  .metric-card.pendente .metric-value  { color: var(--muted); }
+  .metric-sub { font-size: 12px; color: var(--muted); margin-top: 6px; }
 
-  /* GRÁFICO DE ROSCA */
+  /* LEGENDA DE STATUS */
+  .legenda-box {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 16px 24px;
+    margin-bottom: 28px; font-size: 12px; color: var(--muted);
+    display: flex; gap: 32px; flex-wrap: wrap; align-items: center;
+  }
+  .legenda-box strong { color: var(--text); }
+
+  /* GRÁFICO + MOVIMENTAÇÃO */
   .charts-row {
     display: grid;
     grid-template-columns: 300px 1fr;
-    gap: 16px;
-    margin-bottom: 28px;
+    gap: 16px; margin-bottom: 28px;
   }
   .chart-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 24px;
   }
   .chart-title {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 20px;
+    font-size: 13px; font-weight: 600;
+    color: var(--muted); text-transform: uppercase;
+    letter-spacing: 0.8px; margin-bottom: 20px;
   }
-  .donut-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-  .donut-legend {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex: 1;
-  }
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 13px;
-  }
-  .legend-dot {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  .legend-label { color: var(--muted); flex: 1; }
-  .legend-val { font-weight: 600; font-family: 'DM Mono', monospace; }
+  .donut-wrapper { display: flex; align-items: center; gap: 24px; }
+  .donut-legend  { display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .legend-item   { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+  .legend-dot    { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .legend-label  { color: var(--muted); flex: 1; }
+  .legend-val    { font-weight: 600; font-family: 'DM Mono', monospace; }
 
   /* MOVIMENTAÇÃO */
   .mov-grid {
@@ -169,101 +127,64 @@
     gap: 10px;
   }
   .mov-card {
-    background: var(--surface2);
-    border-radius: 8px;
-    padding: 12px 14px;
-    border-left-width: 4px;
-    border-left-style: solid;
+    background: var(--surface2); border-radius: 8px;
+    padding: 12px 14px; border-left-width: 4px; border-left-style: solid;
   }
   .mov-apto {
-    font-size: 14px;
-    font-weight: 700;
-    font-family: 'DM Mono', monospace;
-    margin-bottom: 4px;
+    font-size: 14px; font-weight: 700;
+    font-family: 'DM Mono', monospace; margin-bottom: 4px;
   }
   .mov-hospede {
-    font-size: 12px;
-    color: var(--muted);
-    margin-bottom: 8px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 12px; color: var(--muted); margin-bottom: 8px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
 
   /* BADGES */
   .badge {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 600;
+    display: inline-block; padding: 3px 10px;
+    border-radius: 20px; font-size: 11px; font-weight: 600;
   }
-  .badge.ok { background: rgba(30,132,73,0.2); color: #2ecc71; }
-  .badge.urgente { background: rgba(192,57,43,0.2); color: #e74c3c; }
-  .badge.verificar { background: rgba(230,126,34,0.2); color: #f39c12; }
-  .badge.pendente { background: rgba(127,130,157,0.15); color: var(--muted); }
+  .badge.ok        { background: rgba(30,132,73,0.2);   color: #2ecc71; }
+  .badge.urgente   { background: rgba(192,57,43,0.2);   color: #e74c3c; }
+  .badge.verificar { background: rgba(230,126,34,0.2);  color: #f39c12; }
+  .badge.pendente  { background: rgba(127,130,157,0.15); color: var(--muted); }
 
   /* TABELA */
   .table-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    margin-top: 28px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden; margin-top: 28px;
   }
   .table-header {
-    padding: 18px 24px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 18px 24px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
   }
-  .table-header h3 {
-    font-size: 14px;
-    font-weight: 600;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-  }
+  .table-header h3 { font-size: 14px; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
   thead th {
-    background: var(--surface2);
-    padding: 10px 16px;
-    text-align: left;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: var(--muted);
-    border-bottom: 1px solid var(--border);
+    background: var(--surface2); padding: 10px 16px;
+    text-align: left; font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.8px;
+    color: var(--muted); border-bottom: 1px solid var(--border);
   }
   tbody td {
-    padding: 10px 16px;
-    border-bottom: 1px solid var(--border);
-    color: var(--text);
+    padding: 10px 16px; border-bottom: 1px solid var(--border); color: var(--text);
   }
   tbody tr:last-child td { border-bottom: none; }
   tbody tr:hover { background: rgba(255,255,255,0.02); }
-  .row-ok td:first-child { border-left: 3px solid var(--ok); }
-  .row-urgente td:first-child { border-left: 3px solid var(--urgente); }
-  .row-urgente { background: rgba(192,57,43,0.05); }
+  .row-ok td:first-child        { border-left: 3px solid var(--ok); }
+  .row-urgente td:first-child   { border-left: 3px solid var(--urgente); }
+  .row-urgente                  { background: rgba(192,57,43,0.05); }
   .row-verificar td:first-child { border-left: 3px solid var(--verificar); }
-  .row-pendente { opacity: 0.6; }
+  .row-pendente                 { opacity: 0.6; }
 
-  /* FOOTER */
   .footer {
-    margin-top: 32px;
-    text-align: center;
-    font-size: 12px;
-    color: var(--muted);
-    font-family: 'DM Mono', monospace;
+    margin-top: 32px; text-align: center;
+    font-size: 12px; color: var(--muted); font-family: 'DM Mono', monospace;
   }
 
-  /* ANIMAÇÕES */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
   }
   .metric-card { animation: fadeUp 0.4s ease both; }
   .metric-card:nth-child(1) { animation-delay: 0.05s; }
@@ -277,7 +198,7 @@
 <div class="header">
   <div class="header-left">
     <h1>🏠 Conferência Diária de Limpezas</h1>
-    <p>Morada Carioca · Quarta, 06/05/2026 · Gerado automaticamente</p>
+    <p>Stays + Morada Carioca · Quarta, 06/05/2026 · Gerado automaticamente</p>
   </div>
   <div class="header-badge">LIVE REPORT</div>
 </div>
@@ -292,18 +213,26 @@
   <div class="metric-card urgente">
     <div class="metric-label">🔴 Urgente</div>
     <div class="metric-value">2</div>
-    <div class="metric-sub">Check-in SEM limpeza</div>
+    <div class="metric-sub">Sem limpeza — ação imediata</div>
   </div>
   <div class="metric-card verificar">
     <div class="metric-label">⚠️ Verificar</div>
     <div class="metric-value">0</div>
-    <div class="metric-sub">Checkout sem confirmação</div>
+    <div class="metric-sub">Checkout aguardando limpeza</div>
   </div>
   <div class="metric-card pendente">
     <div class="metric-label">⏳ Pendentes</div>
     <div class="metric-value">68</div>
     <div class="metric-sub">Sem movimentação hoje</div>
   </div>
+</div>
+
+<!-- LEGENDA -->
+<div class="legenda-box">
+  <span>✅ <strong>OK</strong> — Check-in com limpeza agendada (inclui viradas)</span>
+  <span>🔴 <strong>URGENTE</strong> — Check-in SEM limpeza · Checkout SEM limpeza · Virada SEM limpeza</span>
+  <span>⚠️ <strong>VERIFICAR</strong> — Checkout com limpeza agendada (aguardando conclusão)</span>
+  <span>⏳ <strong>Pendente</strong> — Sem movimentação hoje</span>
 </div>
 
 <!-- GRÁFICO + MOVIMENTAÇÃO -->
@@ -355,22 +284,22 @@
     <div class="mov-grid">
       
         <div class="mov-card" style="border-left: 4px solid #1e8449">
-            <div class="mov-apto">161111A</div>
+            <div class="mov-apto">161111A <span style="font-size:10px;background:rgba(46,204,113,0.15);color:#2ecc71;padding:2px 6px;border-radius:10px">↓ CI</span></div>
             <div class="mov-hospede">—</div>
             <div class="mov-acao"><span class="badge ok">✅ OK</span></div>
         </div>
         <div class="mov-card" style="border-left: 4px solid #c0392b">
-            <div class="mov-apto">161152</div>
+            <div class="mov-apto">161152 <span style="font-size:10px;background:rgba(46,204,113,0.15);color:#2ecc71;padding:2px 6px;border-radius:10px">↓ CI</span></div>
             <div class="mov-hospede">N.</div>
             <div class="mov-acao"><span class="badge urgente">🔴 URGENTE</span></div>
         </div>
         <div class="mov-card" style="border-left: 4px solid #1e8449">
-            <div class="mov-apto">161161</div>
+            <div class="mov-apto">161161 <span style="font-size:10px;background:rgba(46,204,113,0.15);color:#2ecc71;padding:2px 6px;border-radius:10px">↓ CI</span></div>
             <div class="mov-hospede">F. D.</div>
             <div class="mov-acao"><span class="badge ok">✅ OK</span></div>
         </div>
         <div class="mov-card" style="border-left: 4px solid #c0392b">
-            <div class="mov-apto">161178</div>
+            <div class="mov-apto">161178 <span style="font-size:10px;background:rgba(46,204,113,0.15);color:#2ecc71;padding:2px 6px;border-radius:10px">↓ CI</span></div>
             <div class="mov-hospede">I. M.</div>
             <div class="mov-acao"><span class="badge urgente">🔴 URGENTE</span></div>
         </div>
@@ -389,9 +318,9 @@
       <tr>
         <th>Apto</th>
         <th>Check-in hoje?</th>
+        <th>Checkout hoje?</th>
         <th>Limpeza agendada?</th>
         <th>Status</th>
-        <th>Checkout hoje?</th>
         <th>Hóspede</th>
         <th>Ação necessária</th>
         <th>Último limpo?</th>
@@ -402,9 +331,9 @@
         <tr class="row-pendente">
             <td><strong>161007</strong></td>
             <td>—</td>
+            <td>—</td>
             <td>Sim</td>
             <td><span class="badge pendente">⏳ Pendente</span></td>
-            <td>—</td>
             <td>—</td>
             <td>—</td>
             <td>Sim (03/05/2026)</td>
@@ -413,8 +342,8 @@
             <td><strong>161014</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (03/05/2026)</td>
@@ -423,8 +352,8 @@
             <td><strong>161014A</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>—</td>
@@ -432,9 +361,9 @@
         <tr class="row-pendente">
             <td><strong>161022</strong></td>
             <td>—</td>
+            <td>—</td>
             <td>Sim</td>
             <td><span class="badge pendente">⏳ Pendente</span></td>
-            <td>—</td>
             <td>—</td>
             <td>—</td>
             <td>—</td>
@@ -443,8 +372,8 @@
             <td><strong>161024</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (04/05/2026)</td>
@@ -453,8 +382,8 @@
             <td><strong>161027</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (01/05/2026)</td>
@@ -463,8 +392,8 @@
             <td><strong>161039</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (03/05/2026)</td>
@@ -473,8 +402,8 @@
             <td><strong>161068</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (03/05/2026)</td>
@@ -483,8 +412,8 @@
             <td><strong>161095C</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (05/05/2026)</td>
@@ -493,8 +422,8 @@
             <td><strong>161103</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (05/05/2026)</td>
@@ -503,8 +432,8 @@
             <td><strong>161108</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (04/05/2026)</td>
@@ -513,8 +442,8 @@
             <td><strong>161110</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>—</td>
@@ -522,9 +451,9 @@
         <tr class="row-ok">
             <td><strong>161111A</strong></td>
             <td>Sim</td>
+            <td>—</td>
             <td>Sim</td>
             <td><span class="badge ok">✅ OK</span></td>
-            <td>—</td>
             <td>—</td>
             <td>Nenhuma ação necessária</td>
             <td>Sim (03/05/2026)</td>
@@ -533,8 +462,8 @@
             <td><strong>161112</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (29/04/2026)</td>
@@ -543,8 +472,8 @@
             <td><strong>161114</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (02/05/2026)</td>
@@ -553,8 +482,8 @@
             <td><strong>161116</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>—</td>
@@ -563,8 +492,8 @@
             <td><strong>161117</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (04/05/2026)</td>
@@ -573,8 +502,8 @@
             <td><strong>161119</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (02/05/2026)</td>
@@ -583,8 +512,8 @@
             <td><strong>161120</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (04/05/2026)</td>
@@ -593,8 +522,8 @@
             <td><strong>161121</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (02/05/2026)</td>
@@ -603,8 +532,8 @@
             <td><strong>161122</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (04/05/2026)</td>
@@ -613,8 +542,8 @@
             <td><strong>161123</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (04/05/2026)</td>
@@ -623,8 +552,8 @@
             <td><strong>161125</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (04/05/2026)</td>
@@ -633,8 +562,8 @@
             <td><strong>161127</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (03/05/2026)</td>
@@ -642,9 +571,9 @@
         <tr class="row-pendente">
             <td><strong>161129</strong></td>
             <td>—</td>
+            <td>—</td>
             <td>Sim</td>
             <td><span class="badge pendente">⏳ Pendente</span></td>
-            <td>—</td>
             <td>—</td>
             <td>—</td>
             <td>Sim (01/05/2026)</td>
@@ -653,8 +582,8 @@
             <td><strong>161131</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (04/05/2026)</td>
@@ -663,8 +592,8 @@
             <td><strong>161132</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (05/05/2026)</td>
@@ -673,8 +602,8 @@
             <td><strong>161133</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (03/05/2026)</td>
@@ -683,8 +612,8 @@
             <td><strong>161134</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (04/05/2026)</td>
@@ -692,9 +621,9 @@
         <tr class="row-pendente">
             <td><strong>161135</strong></td>
             <td>—</td>
+            <td>—</td>
             <td>Sim</td>
             <td><span class="badge pendente">⏳ Pendente</span></td>
-            <td>—</td>
             <td>—</td>
             <td>—</td>
             <td>Sim (04/05/2026)</td>
@@ -703,8 +632,8 @@
             <td><strong>161136A</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (03/05/2026)</td>
@@ -713,8 +642,8 @@
             <td><strong>161137</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (03/05/2026)</td>
@@ -723,8 +652,8 @@
             <td><strong>161138</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (03/05/2026)</td>
@@ -733,8 +662,8 @@
             <td><strong>161139</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (01/05/2026)</td>
@@ -743,8 +672,8 @@
             <td><strong>161140</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (03/05/2026)</td>
@@ -753,8 +682,8 @@
             <td><strong>161141</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (04/05/2026)</td>
@@ -763,8 +692,8 @@
             <td><strong>161142</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (04/05/2026)</td>
@@ -773,8 +702,8 @@
             <td><strong>161143</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (05/05/2026)</td>
@@ -783,8 +712,8 @@
             <td><strong>161146</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (03/05/2026)</td>
@@ -793,8 +722,8 @@
             <td><strong>161147</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (04/05/2026)</td>
@@ -802,9 +731,9 @@
         <tr class="row-pendente">
             <td><strong>161148</strong></td>
             <td>—</td>
+            <td>—</td>
             <td>Sim</td>
             <td><span class="badge pendente">⏳ Pendente</span></td>
-            <td>—</td>
             <td>—</td>
             <td>—</td>
             <td>Sim (04/05/2026)</td>
@@ -813,8 +742,8 @@
             <td><strong>161149</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (05/05/2026)</td>
@@ -823,8 +752,8 @@
             <td><strong>161150B</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (05/05/2026)</td>
@@ -833,8 +762,8 @@
             <td><strong>161151</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (04/05/2026)</td>
@@ -843,8 +772,8 @@
             <td><strong>161152</strong></td>
             <td>Sim</td>
             <td>—</td>
-            <td><span class="badge urgente">🔴 URGENTE</span></td>
             <td>—</td>
+            <td><span class="badge urgente">🔴 URGENTE</span></td>
             <td>N.</td>
             <td>Adicionar limpeza AGORA</td>
             <td>Sim (04/05/2026)</td>
@@ -853,8 +782,8 @@
             <td><strong>161154</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (04/05/2026)</td>
@@ -863,8 +792,8 @@
             <td><strong>161155</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>—</td>
@@ -873,8 +802,8 @@
             <td><strong>161156</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (05/05/2026)</td>
@@ -882,9 +811,9 @@
         <tr class="row-pendente">
             <td><strong>161157</strong></td>
             <td>—</td>
+            <td>—</td>
             <td>Sim</td>
             <td><span class="badge pendente">⏳ Pendente</span></td>
-            <td>—</td>
             <td>—</td>
             <td>—</td>
             <td>Sim (30/04/2026)</td>
@@ -893,8 +822,8 @@
             <td><strong>161159</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (03/05/2026)</td>
@@ -902,9 +831,9 @@
         <tr class="row-ok">
             <td><strong>161161</strong></td>
             <td>Sim</td>
+            <td>—</td>
             <td>Sim</td>
             <td><span class="badge ok">✅ OK</span></td>
-            <td>—</td>
             <td>F. D.</td>
             <td>Nenhuma ação necessária</td>
             <td>Sim (04/05/2026)</td>
@@ -912,9 +841,9 @@
         <tr class="row-pendente">
             <td><strong>161162</strong></td>
             <td>—</td>
+            <td>—</td>
             <td>Sim</td>
             <td><span class="badge pendente">⏳ Pendente</span></td>
-            <td>—</td>
             <td>—</td>
             <td>—</td>
             <td>Sim (04/05/2026)</td>
@@ -922,9 +851,9 @@
         <tr class="row-pendente">
             <td><strong>161165</strong></td>
             <td>—</td>
+            <td>—</td>
             <td>Sim</td>
             <td><span class="badge pendente">⏳ Pendente</span></td>
-            <td>—</td>
             <td>—</td>
             <td>—</td>
             <td>Sim (02/05/2026)</td>
@@ -933,8 +862,8 @@
             <td><strong>161166</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (05/05/2026)</td>
@@ -943,8 +872,8 @@
             <td><strong>161167</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>—</td>
@@ -953,8 +882,8 @@
             <td><strong>161169</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (05/05/2026)</td>
@@ -963,8 +892,8 @@
             <td><strong>161171</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (02/05/2026)</td>
@@ -973,8 +902,8 @@
             <td><strong>161174</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (04/05/2026)</td>
@@ -982,9 +911,9 @@
         <tr class="row-pendente">
             <td><strong>161175</strong></td>
             <td>—</td>
+            <td>—</td>
             <td>Sim</td>
             <td><span class="badge pendente">⏳ Pendente</span></td>
-            <td>—</td>
             <td>—</td>
             <td>—</td>
             <td>Sim (03/05/2026)</td>
@@ -993,8 +922,8 @@
             <td><strong>161176</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (30/04/2026)</td>
@@ -1003,8 +932,8 @@
             <td><strong>161176B</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (05/05/2026)</td>
@@ -1012,9 +941,9 @@
         <tr class="row-pendente">
             <td><strong>161177</strong></td>
             <td>—</td>
+            <td>—</td>
             <td>Sim</td>
             <td><span class="badge pendente">⏳ Pendente</span></td>
-            <td>—</td>
             <td>—</td>
             <td>—</td>
             <td>Sim (30/04/2026)</td>
@@ -1023,8 +952,8 @@
             <td><strong>161178</strong></td>
             <td>Sim</td>
             <td>—</td>
-            <td><span class="badge urgente">🔴 URGENTE</span></td>
             <td>—</td>
+            <td><span class="badge urgente">🔴 URGENTE</span></td>
             <td>I. M.</td>
             <td>Adicionar limpeza AGORA</td>
             <td>Sim (04/05/2026)</td>
@@ -1033,8 +962,8 @@
             <td><strong>161179</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Não (03/05/2026)</td>
@@ -1043,8 +972,8 @@
             <td><strong>161180</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (03/05/2026)</td>
@@ -1052,9 +981,9 @@
         <tr class="row-pendente">
             <td><strong>161181</strong></td>
             <td>—</td>
+            <td>—</td>
             <td>Sim</td>
             <td><span class="badge pendente">⏳ Pendente</span></td>
-            <td>—</td>
             <td>—</td>
             <td>—</td>
             <td>—</td>
@@ -1063,8 +992,8 @@
             <td><strong>161182</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (04/05/2026)</td>
@@ -1073,8 +1002,8 @@
             <td><strong>161183</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>W. F.</td>
             <td>—</td>
             <td>Sim (04/05/2026)</td>
@@ -1083,8 +1012,8 @@
             <td><strong>161184</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (03/05/2026)</td>
@@ -1093,8 +1022,8 @@
             <td><strong>161185</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (05/05/2026)</td>
@@ -1103,8 +1032,8 @@
             <td><strong>161187</strong></td>
             <td>—</td>
             <td>—</td>
-            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
+            <td><span class="badge pendente">⏳ Pendente</span></td>
             <td>—</td>
             <td>—</td>
             <td>Sim (05/05/2026)</td>
@@ -1112,9 +1041,9 @@
         <tr class="row-pendente">
             <td><strong>161188</strong></td>
             <td>—</td>
+            <td>—</td>
             <td>Sim</td>
             <td><span class="badge pendente">⏳ Pendente</span></td>
-            <td>—</td>
             <td>—</td>
             <td>—</td>
             <td>Sim (03/05/2026)</td>
@@ -1124,7 +1053,7 @@
 </div>
 
 <div class="footer">
-  Gerado automaticamente · Morada Carioca + Google Sheets · 06/05/2026
+  Gerado automaticamente · Stays + Morada Carioca + Google Sheets · 06/05/2026
 </div>
 
 </body>
